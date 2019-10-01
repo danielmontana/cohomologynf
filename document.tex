@@ -1,0 +1,96 @@
+\documentclass[a4paper,12pt, leqno]{report}
+\input{comandos}
+
+% Title Page
+\title{Cohomología de cuerpos de números}
+\author{Daniel Martínez Marqués}
+
+
+\begin{document}
+\chapter*{Cohomología de cuerpos de números}
+
+Estas son las notas correspondientes al seminario del mismo nombre celebrado en la Universidad Autónoma de Madrid durante el curso 2019/2020. Están basadas en el libro \textit{Cohomology of Number Fields} de J. Neukirch, A. Schmidt y K. Wingberg, el cual puede consultarse para usos no comerciales en \url{https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/}. 
+\begin{center}
+\cc \ccby \ccnc
+\end{center}
+\section*{Grupos profinitos}
+
+Prerrequisitos:
+
+\begin{itemize}
+	\item Topología y álgebra al nivel de tercero del grado.
+	\item Saber qué es un límite inverso y el producto tensorial.
+\end{itemize}
+
+Estos grupos topológicos aparecen al considerar los grupos de Galois de extensiones infinitas de cuerpos.
+\begin{defprop} \label{prof1}
+	Decimos que un espacio topológico Hausdorff $T$ es profinito si satisface alguna de las tres siguientes propiedades equivalentes:
+	\begin{enumerate}[label=\roman*)]
+		\item $T$ es el límite inverso de espacios finitos discretos.
+		\item $T$ es compacto y todo punto tiene una base de entornos formada por conjuntos clopen. 
+		\item $T$ es compacto y totalmente desconectado.
+	\end{enumerate}
+\end{defprop}
+\begin{dem}
+	
+i) $\Rightarrow$ ii): el límite inverso de espacios compactos es compacto. Esto se debe a que $\varprojlim X_i$ es un subespacio cerrado de $\prod_{i \in I}X_i$, que a su vez es compacto por el teorema de Tychonoff. 
+
+Recordemos que la topología del límite inverso es la más fina tal que las proyecciones $\pi_i: T \rightarrow X_i$ son continuas, luego en cualquier punto podemos encontrar una base de entornos de la forma $\{\pi_i^{-1}(U)\}$ donde $U\subset X_i$ es clopen. 
+
+ii) $\Rightarrow$ iii): sea $C_t$ la componente conexa de $t \in T$. Como $T$ es compacto y Hausdorff, $C_t$ es la intersección de todos los conjuntos clopen que contienen a $t$; i.e. $C_t=\{t\}$.
+
+iii) $\Rightarrow$ i): sea $I$ el conjunto de relaciones de equivalencia $R$ tal que al cocientar $T/R$ es finito y discreto en la topología del cociente. $I$ está parcialmente ordenado por inclusión y todo par $R_1,R_2$ tiene cota superior $R_1 \cap R_2$, luego $I$ es dirigido. Afirmo que $\phi: T \rightarrow \ \varprojlim T/R$ es un homeomorfismo. 
+
+Demostramos primero que $\phi$ es sobreyectivo: sea $\{t_R\}_{R \in I} \in  \varprojlim T/R $. Nótese que los conjuntos $(p_R \circ \phi)^{-1}(t_R)$ son no vacíos y compactos (son preimagenes de un compacto y $T$, $T/R$ son compacto y Hausdorff respectivamente). Al ser $I$ dirigido esto implica que intersecciones finitas de estos conjuntos tambien son no vacías y por compacidad obtenemos que $\phi^{-1}(\{t_R\}_{R\in I})= \cap_{R \in I}(p_R \circ \phi)^{-1}(t_R)$ también es no vacío. (Un espacio es compacto si y solo si cualquier colección de subconjuntos cerrados con la propiedad de intersección finita tiene interseccion no vacía).
+
+Para ver que $\phi$ es inyectiva es suficiente demostrar que para $t,s \in T$ distintos, existe $R \in I$ tal que $(t,s)\notin R$. Como $T$ es totalmente desconectado $s\notin C_t$. Por la caracterización nombrada anteriormente, existe un subconjunto clopen $U \subseteq T$ tal que $t\in U$, $s \notin U$ y definimos una relación de equivalencia $R$: $(x,y)\in R$ si y solo si $x$ e $y$ están ambos en $U$ o $U^c$. $R$ cumple la condición requerida luego $\phi$ es una biyección entre espacios compactos, es decir, un homeomorfismo. \qed
+\end{dem}
+\begin{defprop}
+	Decimos que un grupo topológico Hausdorff $G$ es un grupo profinito si satisface alguna de las siguiente condiciones equivalentes:
+	\begin{enumerate}[label=\roman*)]
+		\item $G$ es el límite inverso topológico de grupos finitos discretos.
+		\item $G$ es compacto y el elemento neutro tiene una base de entornos formada por subgrupos normales clopen. 
+		\item $G$ es compacto y totalmente desconectado.
+	\end{enumerate}
+\end{defprop}
+\begin{dem}
+	i) $\Rightarrow$ iii): el límite inverso de espacios compactos y totalmente desconectados es a su vez compacto y totalmente desconectado. 
+	
+	ii) $\Rightarrow$ i): sea $\{N_e\}$ el conjunto de entornos de $e \in G$ que son subgrupos normales abiertos. Afirmo que el homomorfismo canónico $\phi: G \rightarrow \varprojlim_U G/U$ es un isomorfismo. Es fácil ver que es inyectiva: si no lo fuese, existiría un $g \in G$ tal que $g \in N_e$ para todo entorno de la colección, lo cual contradice que $G$ es Hausdorff. 
+	
+	Demostramos ahora que es sobreyectiva. Sea $x=\{x_U\}_U\in \varprojlim_U G/U$. Sea $\phi_U:G \rightarrow G/U$ la proyección canónica. Tenemos una igualdad:
+	\begin{equation*}
+	\phi^{-1}(x)=\bigcap\limits_{U} \phi^{-1}_U(x_U).
+	\end{equation*}
+	Nótese que la intersección de la derecha es no vacía utilizando el mismo argumento que en la demostración de \ref{prof1}. Por lo tanto $\phi$ es biyectiva y de hecho también es una aplicación abierta, luego es un homeomorfismo. Por otra parte, es claro que para cada $U$, $G/U$ es compacto y discreto, luego es finito. 
+	
+	iii) $\Rightarrow$ ii): el espacio topológico que subyace a $G$ es profinito por \ref{prof1}, luego todo punto tiene una base de entornos formada por conjuntos clopen. Nótese que un subconjunto abierto es automáticamente cerrado porque es el complementario de la unión de sus clases laterales no triviales, que son abiertas. Sea $U$ un entorno clopen de $e\in G$, definimos:
+	\begin{center}
+		$V:=\{v \in U|Uv\subseteq U\}$ y $H:=\{h \in V |h^{-1}\in V\}$.
+	\end{center}
+Afirmo que $H \subseteq U$ is un subgrupo clopen en $G$. Primero demostraremos que $V$ es abierto: sea $v\in V$. Por definición $uv \in V$ para todo $u\in U$, luego existen entornos $U_u$ de $u$ y $V_u$ de $v$ tal que $U_u V_u \subseteq U$. Los conjuntos abiertos $\{U_u\}$ cubren el espacio compacto $U$, luego existe un subrecubrimiento finito $U_{u_1},...,U_{u_n}$. 
+
+Sea $V_v := V_{u_1}\cap \cdots \cap V_{u_n}$. $V_v$ es un entorno abierto de $v$ contenido en $V$, luego $V$ es abierto y $H:= V \cap V^{-1}$ porque invertir es un homeomorfismo. Solo falta demostrar que $H$ es un subgrupo. Es claro que $e \in H$ y que $H^{-1}=H$, luego nos queda comprobar que si $x,y \in H$ entonces $xy \in H$. Nótese pprimero que $Uxy \subseteq Uy \subset U$, por lo que $xy \in V$. Con el mismo razonamiento uno obtiene que $(xy)^{-1}\in V$, luego $xy \in H$. Es decir, $H$ es un subgrupo abierto de $G$ contenido en $U$. En particular, $H$ tiene índice finito en $G$ y solo hay un número finito de conjugados de $H$. La intersección de estos conjugados es un subgrupo clopen normal de $G$ contenido en $U$. \qed
+\end{dem}
+
+De ahora en adelante, todos los homomorfismos entre grupos profinitos serán continuos salvo que se indique lo contrario. De la misma manera, todos los subgrupos serán cerrados. Como ya se dijo anteriormente, los subgrupos abiertos son inmediatamente cerrados y por compacidad, es sencillo ver que los subgrupos cerrados son abiertos si y solo si tienen índice finito. 
+
+Si $H$ es un subgrupo de un grupo profinito $G$, el conjunto $G/H$ de clases laterales es un espacio profinito con la topología del cociente. Si $H$ es un subgrupo normal, $G/H$ es un grupo profinito en la manera natural de cocientar. En general, toda la teoría de grupos tiene un análogo para el caso de grupos topológicos profinitos. A continuación veremos ejemplos de este paralelismo.
+\begin{definicion}
+	Un \textbf{número supernatural} es un producto formal $\prod\limits_{p}p^{n_p}$, donde $p$ recorre los primos y $n_p$ son enteros no negativos o $\infty$.
+\end{definicion}
+Podemos multiplicar números supernaturales sumando los exponentes de la manera natural. También existen las nociones de máximo común divisor y mínimo común múltiplo. 
+\begin{definicion}
+	Sean $G$ un grupo profinito y $A$ un  grupo abeliano con torsión. 
+	\begin{enumerate}[label=\roman*)]
+		\item El \textbf{índice} de un subgrupo cerrado $H$ de $G$ es el número supernatural:
+		\begin{equation*}
+		(G:H)=\mathrm{m.c.m.}\{(G/U:H/H\cap U)\},
+		\end{equation*}
+		donde $U$ recorre los subgrupos normales abiertos de $G$. 
+		\item  El \textbf{orden} de $G$ se define como $\#G=(G:1)=\mathrm{m.c.m.}\{\#(G/U)\}_U$. 
+		\item El \textbf{orden} de $A$ se define como $\#A=\mathrm{m.c.m.} \{\#B\}$, $B\leq A$ subgrupos finitos.
+	\end{enumerate}
+\end{definicion}
+
+\end{document}          
