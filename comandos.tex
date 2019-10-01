@@ -1,6 +1,11 @@
-\usepackage{amsmath,amsthm,enumitem, cclicenses, hyperref}
+\usepackage{amsmath,amsthm,amssymb,enumitem, cclicenses, hyperref,amsfonts,tikz-cd}
 \setlength{\parindent}{0cm}
 \setlength{\parskip}{6pt}
+
+\newcommand{\homo}{\mathrm{Hom}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+
 \newtheoremstyle{defprop} % name
 {\topsep}                    % Space above
 {\topsep}                    % Space below
@@ -21,11 +26,46 @@
 {.5em}                       % Space after theorem head
 {}  % Theorem head spec (can be left empty, meaning ‘normal’)          
 
+\newtheoremstyle{prop} % name
+{\topsep}                    % Space above
+{\topsep}                    % Space below
+{\itshape}                  % Body font
+{}                           % Indent amount
+{\bfseries}                   % Theorem head font
+{.}                          % Punctuation after theorem head
+{.5em}                       % Space after theorem head
+{}  % Theorem head spec (can be left empty, meaning ‘normal’)          
+
 \theoremstyle{defprop}
 \newtheorem{defprop}{Definición/Proposición}
 \newtheorem{definicion}{Definición}
+\newtheorem*{ejemplo}{Ejemplo}
+
+\theoremstyle{prop}
+\newtheorem{prop}{Proposición}
 
 \theoremstyle{dem}
 \newtheorem*{dem}{Demostración}
 
+%Flechas
+\newcommand\rightthreearrow{%
+	\mathrel{\vcenter{\mathsurround0pt
+			\ialign{##\crcr
+				\noalign{\nointerlineskip}$\rightarrow$\crcr
+				\noalign{\nointerlineskip}$\rightarrow$\crcr
+				\noalign{\nointerlineskip}$\rightarrow$\crcr
+			}%
+	}}%
+}
+
+\newcommand\rightfourarrow{%
+	\mathrel{\vcenter{\mathsurround0pt
+			\ialign{##\crcr
+				\noalign{\nointerlineskip}$\rightarrow$\crcr
+				\noalign{\nointerlineskip}$\rightarrow$\crcr
+				\noalign{\nointerlineskip}$\rightarrow$\crcr
+				\noalign{\nointerlineskip}$\rightarrow$\crcr
+			}%
+	}}%
+}
 

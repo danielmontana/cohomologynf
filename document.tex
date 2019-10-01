@@ -7,7 +7,7 @@
 
 
 \begin{document}
-\chapter*{Cohomología de cuerpos de números}
+\chapter*{Cohomología de grupos profinitos}
 
 Estas son las notas correspondientes al seminario del mismo nombre celebrado en la Universidad Autónoma de Madrid durante el curso 2019/2020. Están basadas en el libro \textit{Cohomology of Number Fields} de J. Neukirch, A. Schmidt y K. Wingberg, el cual puede consultarse para usos no comerciales en \url{https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/}. 
 \begin{center}
@@ -89,8 +89,87 @@ Podemos multiplicar números supernaturales sumando los exponentes de la manera 
 		\end{equation*}
 		donde $U$ recorre los subgrupos normales abiertos de $G$. 
 		\item  El \textbf{orden} de $G$ se define como $\#G=(G:1)=\mathrm{m.c.m.}\{\#(G/U)\}_U$. 
-		\item El \textbf{orden} de $A$ se define como $\#A=\mathrm{m.c.m.} \{\#B\}$, $B\leq A$ subgrupos finitos.
+		\item El \textbf{orden} de $A$ se define como $\#A=\mathrm{m.c.m.} \{\#B\}$, donde $B\leq A$ recorre los subgrupos finitos de $A$.
 	\end{enumerate}
 \end{definicion}
+Dada una cadena de subgrupos cerrados $N\leq H \leq G$ el índice se comporta de manera multiplicativa, es decir:
+\begin{equation*}
+(G:N)=(G:H)(H:N)
+\end{equation*}
+Observamos que el orden de un grupo abeliano con torsión $A$ coincide con el orden del grupo profinito $ \homo (A, \Q / \Z)$.
+\begin{definicion}
+	Sea $G$ un grupo profinito. Un \textbf{$G$-módulo abstracto} $M$ es un grupo abeliano $M$ con una acción:
+	\begin{equation*}
+	G \times M \rightarrow M, (g,m)\mapsto g(m)
+	\end{equation*}
+	tal que $1(m)=m$, $(gh)(m)=g(h(m))$ y $g(m+n)=g(m)+g(n)$ para todo $g,h \in G$ y $m,n \in M$.
+	
+		Un \textbf{$G$-módulo topológico} $M$ es un grupo topológico abeliano y Hausdorff con la estructura de un $G$-módulo abstracto tal que la acción $G \times M \rightarrow M$ es continua. 
+\end{definicion}
+\begin{prop}
+Sean $G$ un grupo profinito y $M$ un $G$-módulo abstracto. Las siguientes condiciones son equivalentes:
+\begin{enumerate}[label= \roman*)]
+	\item $M$ es un $G$-módulo (topológico) discreto; es decir, la acción $G \times M \rightarrow M$ es continua con la topología discreta en $M$.
+	\item Para todo $m \in M$ el estabilizador $G_m:=\{g \in G|g(m)=m\}$ es abierto.
+	\item $M=\bigcup M^U$, donde $U$ recorre los subgrupos abiertos de $G$. 
+\end{enumerate}
+\end{prop}
+\begin{dem}
+	i) $\Rightarrow$ ii): si restringimos la acción a $G \times \{m\}$, tenemos que la preimagen de $m$ es $G_m$. Al ser la acción continua por hipótesis, $G_m$ es abierto. 
+	
+	ii) $\Rightarrow$ iii): trivial porque $m \in M^{G_m}$ y los $G_m$ son abiertos por hipótesis.
+	
+	iii) $\Rightarrow$ i): sea $(g,m)\in G \times M$. Sabemos que existe un subgrupo abierto $U$ tal que $m \in M^U$, luego $gU \times \{m\}$ es un entorno abierto de $(g,m)$ que va a parar a $g(m)$. Luego la acción es continua. \qed
+\end{dem}
+En lo que a estas notas respecta nos centraremos en $G$-módulos topológicos discretos y normalmente omitiremos tanto la terminología \textit{abstracto} como \textit{topológico} cuando nos refitamos a estos.
+\paragraph*{Ejemplos de operaciones con $G$-módulos:}
+\begin{enumerate}
+	\item Dada una familia $(A_i)_{i\in I}$ de $G$-módulos discretos, la suma directa $\bigoplus_{i \in I}A_i$ es también un $G$-módulo discreto donde $G$ actúa en cada coordenada: $g((a_i)_{i \in I})=(g(a_i))_{i \in I}$. 
+	
+	Esto no es cierto en general para el producto directo. 
+	
+	\item El producto tensorial $A \otimes B$ sobre $\mathbb{Z}$ de dos $G$-módulos discretos es de nuevo un $G$-módulo discreto con la acción diagonal de $G$: $g(a \otimes b)=g(a) \otimes g(b)$.
+	\item Al conjunto $\homo_{\Z}(A,B)$ se le puede dar la estructura de $G$-módulo abstracto definiendo la acción $g(\phi)(a)=g(\phi(g^{-1}(a)))$. 
+	
+	Si $A=A^U$ para algún subgrupo abierto $U\leq G$, entonces $\homo (A,B)$ es un $G$-módulo discreto. Esto ocurre por ejemplo cuando $G$ es finito o si $A$ es finitamente generado como $\Z$-módulo. 
+	\item Los grupos $\Z, \Q, \Z/n\Z$ y $\mathbb{F}_q$ se pueden ver como $G$-módulos discretos con acción trivial. 
+\end{enumerate}	
+Hasta ahora, todos los grupos que hemos considerado han sido compactos y totalmente desconectado. 
 
+
+\section*{Grupos de cohomología}
+Sea $G$ un grupo profinito, en esta sección todos los $G$-modulos serán discretos. Consideremos el diagrama:
+\begin{equation*}
+	\cdots \rightfourarrow G \times G \times G \rightthreearrow G \times G \rightrightarrows G,
+\end{equation*}
+donde las flechas representan las proyecciones $d_i:G^{n+1}\rightarrow G_n$ para $i=0,1,...,n$ dadas por:
+\begin{equation*}
+d_i(\sigma_0,...,\sigma_n)=(\sigma_0,...,\hat{\sigma}_i,...,\sigma_n)
+\end{equation*}
+donde $\hat{\sigma_i}$ significa que omitimos ese término. Dado un $G$-módulo $A$ definimos el grupo abeliano:
+\begin{equation*}
+X^n(G,A)=\mathrm{Map}(G^{n+1},A)
+\end{equation*}
+de funciones continuas $x: G^{n+1}\rightarrow A$. $X^n$ tiene estructura natural de $G$-módulo con la acción:
+\begin{equation*}
+(\sigma x)(\sigma_0,...,\sigma_n)=\sigma(\sigma^{-1}\sigma_0,...,\sigma^{-1}\sigma_n).
+\end{equation*}
+Obsérvese que la proyección $d_i$ induce un $G$-homomorfismo $d_i^*:X^{n-1}\rightarrow X^n$, y podemos formar la suma:
+\begin{equation*}
+\partial^n=\sum_{i=0}^{n}(-1)^i d_i^*.
+\end{equation*}
+Explícitamente, para $x \in X^{n-1}, \partial^n x$ es la función:
+\begin{equation*}
+(\partial^n x)(\sigma_0,...,\sigma_n)=\sum_{i=0}^{n}(-1)^i x(\sigma_0,...,\hat{\sigma_i},...,\sigma_n).
+\end{equation*}
+Tenemos además otro $G$-homomorfismo $\partial^0: A \rightarrow X^0$ definido como $a \mapsto x$ donde $x$ es la functión constante con valor $a$.
+\begin{prop}
+	La sucesión:
+\begin{center}
+	\begin{tikzcd}
+	0 \arrow{r}& A \arrow{r}{\partial^0}& X^0 \arrow{r}{\partial^1}& X^1 \arrow{r}{\partial^2}& X^2 \arrow{r}& \cdots
+	\end{tikzcd}
+\end{center}
+es exacta.
+\end{prop}
 \end{document}          
