@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.6.12)  9 OCT 2019 17:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.6.12)  10 OCT 2019 20:47
 entering extended mode
 **./document.tex
 (document.tex
@@ -762,56 +762,58 @@ LaTeX Font Info:    Font shape `OMS/phv/b/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 14.
 LaTeX Font Info:    Font shape `OMS/phv/b/n' in size <11.63234> not available
 (Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 14.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 21.
- ("C:\Users\onlyt\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\omscmr.fd"
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 21.
  [1
 
 
 {C:/Users/onlyt/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-[2] [3] [4]
-Overfull \hbox (8.89912pt too wide) in paragraph at lines 127--128
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 51.
+
+("C:\Users\onlyt\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\omscmr.fd"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 51.
+
+[2] [3] [4] [5]
+Overfull \hbox (8.89912pt too wide) in paragraph at lines 157--158
 []\OT1/cmr/m/n/12 Dada una fa-milia $(\OML/cmm/m/it/12 A[]\OT1/cmr/m/n/12 )[]$ 
 de $\OML/cmm/m/it/12 G$\OT1/cmr/m/n/12 -modulos dis-cre-tos, la suma di-recta 
 $[][] \OML/cmm/m/it/12 A[]$
  []
 
-[5] [6] [7]
-Overfull \hbox (49.00702pt too wide) detected at line 246
+[6] [7] [8]
+Overfull \hbox (49.00702pt too wide) detected at line 276
 []
  []
 
-[8]
-Overfull \hbox (8.20705pt too wide) in paragraph at lines 255--257
+[9]
+Overfull \hbox (8.20705pt too wide) in paragraph at lines 285--287
 \OT1/cmr/m/n/12 A es-tos/as $\OML/cmm/m/it/12 n$\OT1/cmr/m/n/12 -cocadenas, $\O
 ML/cmm/m/it/12 n$\OT1/cmr/m/n/12 -cociclos y $\OML/cmm/m/it/12 n$\OT1/cmr/m/n/1
 2 -cobordes se les de-nom-ina in-ho-mogeneos. 
  []
 
 
-Overfull \hbox (1.59229pt too wide) in paragraph at lines 261--262
+Overfull \hbox (1.59229pt too wide) in paragraph at lines 291--292
  []\OT1/cmr/bx/n/12 Interpretando el grupo $\OML/cmm/m/it/12 H[]\OT1/cmr/m/n/12
  (\OML/cmm/m/it/12 G; A\OT1/cmr/m/n/12 )$\OT1/cmr/bx/n/12 : \OT1/cmr/m/n/12 de 
 nuevo recor-damos que los $1$-cociclos
  []
 
-[9] [10] [11]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 384.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 384.
+[10] [11] [12]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 413.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 413.
  (document.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 384.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 384.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 413.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 413.
 Package rerunfilecheck Info: File `document.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 384.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 413.
  ) 
 Here is how much of TeX's memory you used:
- 18876 strings out of 492895
- 375875 string characters out of 3123735
- 438826 words of memory out of 3000000
+ 18882 strings out of 492895
+ 375934 string characters out of 3123735
+ 438828 words of memory out of 3000000
  22415 multiletter control sequences out of 15000+200000
  13774 words of font info for 47 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -837,9 +839,9 @@ nts/symbols/msam10.pfb><C:/Users/onlyt/AppData/Local/Programs/MiKTeX 2.9/fonts/
 type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/onlyt/AppData/Local/Programs
 /MiKTeX 2.9/fonts/type1/public/rsfs/rsfs10.pfb><C:/Users/onlyt/AppData/Local/Pr
 ograms/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb>
-Output written on document.pdf (11 pages, 213834 bytes).
+Output written on document.pdf (12 pages, 223703 bytes).
 PDF statistics:
- 172 PDF objects out of 1000 (max. 8388607)
- 46 named destinations out of 1000 (max. 500000)
+ 182 PDF objects out of 1000 (max. 8388607)
+ 52 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

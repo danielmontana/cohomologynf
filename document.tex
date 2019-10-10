@@ -13,6 +13,36 @@ Estas son las notas correspondientes al seminario del mismo nombre celebrado en 
 \begin{center}
 \cc \ccby \ccnc
 \end{center}
+
+\section*{Background check}
+Sea $R$ un anillo conmutativo con unidad.
+\begin{definicion}
+	Un $R$-módulo por la izquierda es un grupo abeliano $M$ con un homomorfismo de anillos $\omega: R \rightarrow \mathrm{End}(M,M)$. Escribimos $ra$ para denotar $\omega(r)(a)$.
+\end{definicion}
+\begin{definicion} (Límite inverso)
+	Sea $(I,\leq)$ un conjunto parcialmente ordenado y dirigido. Sea $\{A_i\}_{i \in I}$ una familia de objetos en una categoría $\mathcal{A}$ y sea $\{f_{ij}\}_{i\leq j}$ una familia de morfismos que verifican $f_{ij}\in \mathrm{Mor}(A_j,A_i)$, $f_{ii}=\id_{A_i}$ y $f_{ik}=f_{ij}\circ f_{jk}$ para $i\leq j \leq k$. A $((A_i)_{i \in I}, (f_{ij})_{i\leq j})$ le llamamos un sistema inverso.
+	
+	Un límite inverso del sistema inverso es un objeto $A$ en la misma categoría con morfismos $p_i: A \rightarrow A_i$ (llamados proyecciones) tal que $p_i = f_{ij}\circ p_j$ para todo $i\leq j$. Este objeto verifica que cualquier dado cualquier otro par $(B,q_i)$ existe un único morfismo $\phi: A \rightarrow B$ tal que el famoso diagrama conmuta. 
+\end{definicion}
+
+\begin{definicion} (Límite directo)
+	Sea $(I,\leq)$ un conjunto parcialmente ordenado y dirigido. Sea $\{A_i\}_{i \in I}$ una familia de objetos en una categoría $\mathcal{A}$ y sea $\{f_{ij}\}_{i\leq j}$ una familia de morfismos que verifican $f_{ij}\in \mathrm{Mor}(A_i,A_j)$, $f_{ii}=\id_{A_i}$ y $f_{ik}=f_{jk}\circ f_{ij}$ para $i\leq j \leq k$. A $((A_i)_{i \in I}, (f_{ij})_{i\leq j})$ le llamamos un sistema directo.
+	
+	Un target es un par $(X,(\phi_i)_{i\in I})$ donde $X$ es un objeto en la categoría y los $\phi: X_i \rightarrow X$ verifican $\phi_i = \phi_j \circ f_{ij}$ para $i \leq j$. Un límite directo es un target tal que para cualquier otro $(Y,(\psi_i)_{i\in I})$ hay un único morfismo $u:X \rightarrow Y$ tal que el famoso diagrama conmuta. 
+	
+
+\end{definicion}
+En ambas definiciones, si $X'$ es otro objeto que verifica lo mismo existen isomorfismos que conmutan con los morfismos descritos. 
+\begin{prop}
+La categoría de $R$-módulos (y en general las cosas algebraicas) tienen límites inversos. 
+\end{prop}
+\begin{dem}
+	Afirmo que $L=\{(a_i) \in \prod A_i:a_i=f_{ij}(a_j),i\leq j\}$ con las proyecciones obvias es el límite inverso. Que satisface $p_i=f_{ij}\circ p_j$ está claro por definición. 
+	
+	Supongamos que $(L',(q_i))$ verifica lo mismo. Tenemos que demostrar que existe un único $\phi: L' \rightarrow L$ tal que $q_i=p_i \circ \phi$. Por cómo está definido $L$ (producto) está claro cómo construir $\phi$ que verifica eso, lo que tenemos que demostrar es que $\im \phi \subseteq L$ y que es único. 
+	
+	Observamos que $p_i(\phi(l'))=q_i(l')=f_{ij}(q_j(l'))=f_{ij}(p_j(\phi(l')))$ luego $\phi(l')\in P$. Ahora supongamos que existe un $\psi$ tal que  $i \circ \phi = i \circ \psi$ tiene los mismos valores al precomponerlo con los $p_i$ (luego son  iguales en el el producto). Como $i$ es inyectivo $j=k$.
+\end{dem}
 \section*{Grupos profinitos}
 
 Prerrequisitos:
