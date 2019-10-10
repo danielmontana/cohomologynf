@@ -1,10 +1,22 @@
-\usepackage{amsmath,amsthm,amssymb,enumitem, cclicenses, hyperref,amsfonts,tikz-cd}
+\usepackage{amsmath,amsthm,amssymb,enumitem, cclicenses, hyperref,amsfonts,tikz-cd,mathrsfs, tikz}
+\usetikzlibrary{matrix, calc, arrows}
 \setlength{\parindent}{0cm}
 \setlength{\parskip}{6pt}
-
+\tikzset{
+	curvedlink/.style={
+		to path={
+			let \p1=(\tikztostart.east), \p2=(\tikztotarget.west),
+			\n1= {abs(\y2-\y1)/4} in
+			(\p1) arc(90:-90:\n1) -- ([yshift=2*\n1]\p2) arc (90:270:\n1)
+		},
+	}
+}
 \newcommand{\homo}{\mathrm{Hom}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Z}{\mathbb{Z}}
+\newcommand{\im}{\mathrm{im}\,}
+\newcommand{\id}{\mathrm{id}}
+\DeclareMathOperator{\coker}{coker}
 
 \newtheoremstyle{defprop} % name
 {\topsep}                    % Space above

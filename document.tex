@@ -152,7 +152,7 @@ X^n(G,A)=\mathrm{Map}(G^{n+1},A)
 \end{equation*}
 de funciones continuas $x: G^{n+1}\rightarrow A$. $X^n$ tiene estructura natural de $G$-módulo con la acción:
 \begin{equation*}
-(\sigma x)(\sigma_0,...,\sigma_n)=\sigma(\sigma^{-1}\sigma_0,...,\sigma^{-1}\sigma_n).
+(\sigma x)(\sigma_0,...,\sigma_n)=\sigma x(\sigma^{-1}\sigma_0,...,\sigma^{-1}\sigma_n).
 \end{equation*}
 Obsérvese que la proyección $d_i$ induce un $G$-homomorfismo $d_i^*:X^{n-1}\rightarrow X^n$, y podemos formar la suma:
 \begin{equation*}
@@ -172,4 +172,212 @@ Tenemos además otro $G$-homomorfismo $\partial^0: A \rightarrow X^0$ definido c
 \end{center}
 es exacta.
 \end{prop}
+\begin{dem}
+	La comprobación de que $\im \partial^i \subseteq \ker \partial^{i+1}$ es directa. Para comprobar que es exacta consideramos las funciones $D^{-1}:X^0 \rightarrow A,D^{-1}x=x(1)$ y para $n\geq 0$:
+	\begin{equation*}
+	D^n:X^{n+1} \rightarrow X^n,(D^n x)(\sigma_0,...,\sigma_n)=x(1,\sigma_0,...,\sigma_n).
+	\end{equation*}
+	Los $D^n$ son homomorfismos de grupos abeliano pero no de $G$-módulos. Es fácil comprobar que:
+	\begin{equation*}
+	D^n \circ \partial^{n+1}+\partial^n\circ D^{n-1} = \id,
+	\end{equation*}
+	luego si $x \in \ker \partial^{n+1}$ entonces $x=\partial^n(D^{n-1}x)$. Es decir $\ker \partial^{n+1}\subseteq \im \partial^n$. \qed
+\end{dem}
+\begin{definicion}
+	A una sucesión exacta de $G$-módulos:
+	\begin{equation*}
+	0 \rightarrow  A \rightarrow X^0 \rightarrow X^1 \rightarrow \cdots
+	\end{equation*}
+	se le llama una \textbf{resolución} de $A$. A ésta en concreto se le denomina la resolución estándar. A una familia $(D^n)_{n\geq 1}$ como la de la demostración anterior se le llama una homotopía. 
+\end{definicion}
+A continuación vamos a seleccionar los elementos $G$-invariantes de $X^n(G,A)$ y los vamos a denotar $C^n(G,A)=X^n(G,A)^G$. Es decir aquellas funciones $x: G^{n+1}\rightarrow X$ tal que para todo $\sigma \in G$:
+\begin{equation*}
+x(\sigma \sigma_0,...,\sigma \sigma_n)=\sigma x(\sigma_0,...,\sigma_n).
+\end{equation*}
+A $C^n$ le llamamos la $n$-cocadenas de $G$ con coeficientes en $A$. Aplicando el functor $A \mapsto A^G$ a toda la resolución estándar obtenemos una secuencia que en general deja de ser exacta:
+\begin{center}
+	\begin{tikzcd}
+	 C^0(G,A) \arrow{r}{\partial^1}& C^1(G,A) \arrow{r}{\partial^2}& C^2(G,A) \arrow{r}& \cdots
+	\end{tikzcd}
+\end{center}
+Sin embargo todavía se verifica que $\partial \partial =0$ y normalmente se le llama el complejo de cocadenas homogéneas de $G$ con coeficientes en $A$.
+\begin{definicion}
+	Definimos los $n$-cociclos como:
+	\begin{equation*}
+	Z^n(G,A)=\ker \partial^{n+1}.
+	\end{equation*}
+	Definimos los $n$-cobordes como:
+	\begin{equation*}
+	B^n(G,A)= \im \partial^n.
+	\end{equation*}
+	Obsérvese que la condicion $\partial \partial=0$ garantiza que $B^n(G,A)\subseteq Z^n(G,A)$.
+	
+	Para $n\geq 0$ definimos \textbf{grupo de cohomología} $n$-dimensional de $G$ con coeficientes en $A$:
+	\begin{equation*}
+	H^n(G,A)=Z^n(G,A)/B^n(G,A).
+	\end{equation*}
+\end{definicion}
+En muchas ocasiones trabajaremos con una versión ligeramente modificada de los grupos de cohomología que reduce el número de variables de las cocadenas. Sea $\mathscr{C}^0(G,A)=A$ y para $n\geq 1$ $\mathscr{C}^n(G,A)$ el grupo abeliano de funciones continuas $y:G^n\rightarrow A$. Tenemos isomorfismos:
+\begin{equation*}
+C^0(G,A)\rightarrow \mathscr{C}^0(G,A),x(\sigma)\mapsto x(1)
+\end{equation*}
+y para $n\geq 1$ $C^n \rightarrow \mathscr{C}^n(G,A)$:
+\begin{equation*}
+x(\sigma_0,...,\sigma_n)\mapsto y(\sigma_1,...,\sigma_n)=x(1,\sigma_1,\sigma_1 \sigma_2,...,\sigma_1...\sigma_n).
+\end{equation*}
+Obsérvese que el inverso de este isomorfismo viene dado por:
+\begin{equation*}
+y(\sigma_1,...,\sigma_n)\mapsto x(\sigma_0,...,\sigma_n)=\sigma_0 y(\sigma_0^{-1}\sigma_1,\sigma_1^{-1}\sigma_2,...,\sigma_{n-1}^{-1}\sigma_n).
+\end{equation*}
+Esto nos permite reescribrir los operadores coborde:
+\begin{equation*}
+\partial^{n+1}:\mathscr{C}^n(G,A)\rightarrow \mathscr{C}^{n+1}(G,A),
+\end{equation*}
+dados por:
+\begin{align*}
+(\partial^1 a)(\sigma)= \sigma a -a & &\text{for } a\in A=\mathscr{C}^0(G,A),\\
+(\partial^2 y)(\sigma,\tau)=\sigma y(\tau)-y(\sigma \tau)+y(\sigma) & & \text{for } y\in \mathscr{C}^1(G,A).
+\end{align*}
+Para el resto:
+\begin{align*}
+(\partial^{n+1}y)(\sigma_1,...,\sigma_{n+1})&=\sigma_1y(\sigma_2,...,\sigma_{n+1})
++\sum_{i=1}^{n}(-1)^i y(\sigma_1,...,\sigma_{i-1},\sigma_i,\sigma_{i+1},\sigma_{i+2},...,\sigma_{n+1})\\
+&+(-1)^{n+1}y(\sigma_1,...,\sigma_n),
+\end{align*}
+donde $y\in \mathscr{C}^N(G,A)$. Si ahora definimos:
+\begin{align*}
+\mathscr{L}^n(G,A)&=\ker \partial^{n+1}\\
+\mathscr{B}^n(G,A)&=\im \partial^n,
+\end{align*}
+los isomorfismos $C^n(G,A)\simeq \mathscr{C}^n(G,A)$ inducen isomorfismos:
+\begin{equation*}
+H^n(G,A)\simeq \mathscr{L}^n(G,A)/\mathscr{B}^n(G,A).
+\end{equation*}
+A estos/as $n$-cocadenas, $n$-cociclos y $n$-cobordes se les denomina inhomogéneos.
+\paragraph*{Interpretando el grupo $H^0(G,A)$:} recordamos que hay un isomorfismo $C^0(G,A)\rightarrow A$ dado por $x\mapsto x(1)$. Según hemos visto arriba, $(\partial^1 a)(\sigma)=\sigma(a)-a$.  Es decir:
+\begin{equation*}
+H^0(G,A)=\ker \partial^1 A^G.
+\end{equation*}
+\paragraph*{Interpretando el grupo $H^1(G,A)$:} de nuevo recordamos que los $1$-cociclos inhomogéneos vienen dados por funciones $x: G \rightarrow A$ tal que para todo $\sigma,\tau \in G$:
+\begin{equation*}
+x(\sigma \tau)=x(\sigma)+\sigma x(\tau).
+\end{equation*}
+Los $1$-cobordes son las funciones dados por $x(\sigma)=\sigma(a)-a$ para $a\in A$ fijo.  Obsérvese que si $G$ actúa trivialmente, $H^1(G,A)$ es simplement $\homo_{cts}(G,A)$. De manera más general, la motivación para definir $H^1$ viene de considerar una sucesión corta exacta:
+\begin{center}
+\begin{tikzcd}
+0 \arrow{r} & A \arrow{r}{i} & B \arrow{r}{j} & C \arrow{r} & 0. 
+\end{tikzcd}
+\end{center}
+Si tomamos los elementos fijados por $G$, en general un elemento de $C^G$ no puede ser representado por uno de $B^G$ y la sucesión deja de ser exacta por la derecha:
+\begin{center}
+	\begin{tikzcd}
+	0 \arrow{r} & A^G \arrow{r} & B^G \arrow{r} & C^G. 
+	\end{tikzcd}
+\end{center}
+En este caso $H^1$ mide cuánto de lejos está de ser exacta esa sucesión. De hecho, hay un isomorfismo canónico:
+\begin{equation*}
+\delta: C^G \rightarrow H^1(G,A)
+\end{equation*} 
+que extiende a una sucesión que exacta:
+\begin{center}
+	\begin{tikzcd}
+	0 \arrow{r} & A^G \arrow{r} & B^G \arrow{r} & C^G \arrow{r}{\delta}& H^1(G,A). 
+	\end{tikzcd}
+\end{center}
+(Durante el seminario, se hará una demostración de \textit{diagram chase}).
+
+Para dar una interpretación aún más concreta introduciremos el concepto de \textit{torsor}. Para poder explotarlo a fondo olvidaremos la hipótesis de que $A$ es abeliano, lo cual nos obliga a hacer algunas modificaciones:
+\begin{definicion}
+	Un \textbf{$G$-grupo} $A$ es un grupo no necesariamente abeliano con la topología discreta y acción de $G$ continua. La acción de $G$ suele denotarse con $a^{\sigma}$. 
+	
+	Un \textbf{cociclo} de $G$ con coeficientes en $A$ es una función continua $\sigma \mapsto a(\sigma)$ tal que:
+	\begin{equation*}
+	a(\sigma \tau)=a(\sigma)a(\tau)^{\sigma}.
+	\end{equation*}
+	Al conjunto de cociclos lo denominamos $\mathscr{L}^1(G,A)$. Dos cociclos son cohomólogos si existe algún $b\in A$ tal que:
+	\begin{equation*}
+	a'(\sigma)=b^{-1}a(\sigma) b^{\sigma}.
+	\end{equation*}
+	Esto es una relación de equivalencia y al cociente le denominamos $H^1(G,A)$ (pointed set).
+\end{definicion}
+
+\section*{La sucesión exacta }
+A continuación estudiaremos cómo se comporta $H^n$ con respecto a homomorfisms ode $G$-módulos $f:A \rightarrow B$. Este $f$ induce un homomorfismo entre las cocadenas $f: C^n(G,A) \rightarrow C^n(G,B)$ que conmuta con $\delta$, luego también induce un homomorfismo:
+\begin{equation*}
+f: H^n(G,A)\rightarrow H^n(G,B).
+\end{equation*}
+\begin{prop}
+	\textit{Snake Lemma:}
+	
+	
+	\begin{center}
+		
+		\begin{tikzpicture}[>=triangle 60]
+		
+		\matrix[matrix of math nodes,column sep={60pt,between origins},row
+		sep={60pt,between origins},nodes={asymmetrical rectangle}] (s)
+		{
+			&|[name=ka]| \ker f &|[name=kb]| \ker g &|[name=kc]| \ker h \\
+			%
+			&|[name=A]| A' &|[name=B]| B' &|[name=C]| C' &|[name=01]| 0 \\
+			%
+			|[name=02]| 0 &|[name=A']| A &|[name=B']| B &|[name=C']| C \\
+			%
+			&|[name=ca]| \coker f &|[name=cb]| \coker g &|[name=cc]| \coker h \\
+		};
+		\draw[->] (ka) edge (A)
+		(kb) edge (B)
+		(kc) edge (C)
+		(A) edge (B)
+		(B) edge node[auto] {\(p\)} (C)
+		(C) edge (01)
+		(A) edge node[auto] {\(f\)} (A')
+		(B) edge node[auto] {\(g\)} (B')
+		(C) edge node[auto] {\(h\)} (C')
+		(02) edge (A')
+		(A') edge node[auto] {\(i\)} (B')
+		(B') edge (C')
+		(A') edge (ca)
+		(B') edge (cb)
+		(C') edge (cc)
+		;
+		\draw[->,gray] (ka) edge (kb)
+		(kb) edge (kc)
+		(ca) edge (cb)
+		(cb) edge (cc)
+		;
+		\draw[->,gray,rounded corners] (kc) -| node[auto,text=black,pos=.7]
+		{\(\partial\)} ($(01.east)+(.5,0)$) |- ($(B)!.35!(B')$) -|
+		($(02.west)+(-.5,0)$) |- (ca);
+		\end{tikzpicture}
+		
+	\end{center}
+\end{prop}
+
+El hecho crucial que podemos demostrar con este lema es que dada una sucesión exacta:
+\begin{equation*}
+0 \rightarrow A \rightarrow B\rightarrow C \rightarrow 0
+\end{equation*}
+existe un homomorfismo canónico para todo $n \geq 0$:
+\begin{equation*}
+\delta: H^n(G,C)\rightarrow H^{n+1}(G,A)
+\end{equation*}
+que nos da la siguiente sucesión exacta: 
+\begin{center}
+	\begin{tikzpicture}
+	\centering
+	\matrix[matrix of nodes,ampersand replacement=\&, column sep=0.5cm, row sep=0.5cm](m)
+	{
+		$H^n(G,A)$ \& $H^n(G,B)$ \& $H^n(G,C)$ \\
+	 $H^{n+1}(G,A)$ \& $H^{n+1}(G,B)$ \& $H^{n+1}(G,C).$ \\
+	};
+	\draw[->]
+	(m-1-1) edge (m-1-2)
+	(m-1-2) edge  (m-1-3)
+	(m-1-3)  edge[curvedlink] node {$\partial$}(m-2-1) 
+	(m-2-1) edge (m-2-2)
+	(m-2-2) edge (m-2-3)
+	;
+	\end{tikzpicture}
+\end{center}
 \end{document}          

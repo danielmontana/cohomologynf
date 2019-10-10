@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.6.12)  1 OCT 2019 16:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7050 64-bit) (preloaded format=pdflatex 2019.6.12)  9 OCT 2019 17:22
 entering extended mode
 **./document.tex
 (document.tex
@@ -646,6 +646,24 @@ File: pgflibraryarrows.meta.code.tex 2019/05/09 v3.1.3 (3.1.3)
 \pgfarrowwidth=\dimen172
 \pgfarrowlinewidth=\dimen173
 )))
+("C:\Users\onlyt\AppData\Local\Programs\MiKTeX 2.9\tex/latex/jknappen\mathrsfs.
+sty"
+Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
+\symrsfs=\mathgroup6
+)
+("C:\Users\onlyt\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendlaye
+r/tikz/libraries\tikzlibrarycalc.code.tex"
+File: tikzlibrarycalc.code.tex 2019/05/09 v3.1.3 (3.1.3)
+)
+("C:\Users\onlyt\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendlaye
+r/tikz/libraries\tikzlibraryarrows.code.tex"
+File: tikzlibraryarrows.code.tex 2019/05/09 v3.1.3 (3.1.3)
+
+("C:\Users\onlyt\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/libraries\pg
+flibraryarrows.code.tex"
+File: pgflibraryarrows.code.tex 2019/05/09 v3.1.3 (3.1.3)
+\arrowsize=\dimen174
+))
 \c@defprop=\count137
 \c@definicion=\count138
 \c@prop=\count139
@@ -671,13 +689,13 @@ LaTeX Font Info:    ... okay on input line 9.
 df.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count140
-\scratchdimen=\dimen174
+\scratchdimen=\dimen175
 \scratchbox=\box42
 \nofMPsegments=\count141
 \nofMParguments=\count142
 \everyMPshowfont=\toks41
 \MPscratchCnt=\count143
-\MPscratchDim=\dimen175
+\MPscratchDim=\dimen176
 \MPnumerator=\count144
 \makeMPintoPDFobject=\count145
 \everyMPtoPDFconversion=\toks42
@@ -728,12 +746,16 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 12.
 ("C:\Users\onlyt\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 12.
+("C:\Users\onlyt\AppData\Local\Programs\MiKTeX 2.9\tex/latex/jknappen\ursfs.fd"
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)
 LaTeX Font Info:    Try loading font information for OT1+phv on input line 14.
-("C:\Users\onlyt\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1phv.fd"
+ ("C:\Users\onlyt\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1phv.fd"
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Try loading font information for OMS+phv on input line 14.
-("C:\Users\onlyt\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omsphv.fd"
+ ("C:\Users\onlyt\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omsphv.fd"
 File: omsphv.fd 
 )
 LaTeX Font Info:    Font shape `OMS/phv/b/n' in size <12> not available
@@ -741,17 +763,16 @@ LaTeX Font Info:    Font shape `OMS/phv/b/n' in size <12> not available
 LaTeX Font Info:    Font shape `OMS/phv/b/n' in size <11.63234> not available
 (Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 14.
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 21.
-("C:\Users\onlyt\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\omscmr.fd"
+ ("C:\Users\onlyt\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 21.
+ [1
 
-[1
 
-
-{C:/Users/onlyt/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
-[3] [4]
+{C:/Users/onlyt/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+[2] [3] [4]
 Overfull \hbox (8.89912pt too wide) in paragraph at lines 127--128
 []\OT1/cmr/m/n/12 Dada una fa-milia $(\OML/cmm/m/it/12 A[]\OT1/cmr/m/n/12 )[]$ 
 de $\OML/cmm/m/it/12 G$\OT1/cmr/m/n/12 -modulos dis-cre-tos, la suma di-recta 
@@ -759,23 +780,42 @@ $[][] \OML/cmm/m/it/12 A[]$
  []
 
 [5] [6] [7]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 175.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 175.
+Overfull \hbox (49.00702pt too wide) detected at line 246
+[]
+ []
+
+[8]
+Overfull \hbox (8.20705pt too wide) in paragraph at lines 255--257
+\OT1/cmr/m/n/12 A es-tos/as $\OML/cmm/m/it/12 n$\OT1/cmr/m/n/12 -cocadenas, $\O
+ML/cmm/m/it/12 n$\OT1/cmr/m/n/12 -cociclos y $\OML/cmm/m/it/12 n$\OT1/cmr/m/n/1
+2 -cobordes se les de-nom-ina in-ho-mogeneos. 
+ []
+
+
+Overfull \hbox (1.59229pt too wide) in paragraph at lines 261--262
+ []\OT1/cmr/bx/n/12 Interpretando el grupo $\OML/cmm/m/it/12 H[]\OT1/cmr/m/n/12
+ (\OML/cmm/m/it/12 G; A\OT1/cmr/m/n/12 )$\OT1/cmr/bx/n/12 : \OT1/cmr/m/n/12 de 
+nuevo recor-damos que los $1$-cociclos
+ []
+
+[9] [10] [11]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 384.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 384.
  (document.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 175.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 175.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 384.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 384.
 Package rerunfilecheck Info: File `document.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 175.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 384.
  ) 
 Here is how much of TeX's memory you used:
- 17772 strings out of 492895
- 349107 string characters out of 3123735
- 412451 words of memory out of 3000000
- 21340 multiletter control sequences out of 15000+200000
- 13280 words of font info for 44 fonts, out of 3000000 for 9000
+ 18876 strings out of 492895
+ 375875 string characters out of 3123735
+ 438826 words of memory out of 3000000
+ 22415 multiletter control sequences out of 15000+200000
+ 13774 words of font info for 47 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,15n,84p,765b,1074s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 63i,15n,84p,765b,1107s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/onlyt/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc
 }<C:/Users/onlyt/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
 cm/cmbsy10.pfb><C:/Users/onlyt/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
@@ -795,10 +835,11 @@ s/onlyt/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12
 .pfb><C:/Users/onlyt/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfo
 nts/symbols/msam10.pfb><C:/Users/onlyt/AppData/Local/Programs/MiKTeX 2.9/fonts/
 type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/onlyt/AppData/Local/Programs
-/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb>
-Output written on document.pdf (7 pages, 189032 bytes).
+/MiKTeX 2.9/fonts/type1/public/rsfs/rsfs10.pfb><C:/Users/onlyt/AppData/Local/Pr
+ograms/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb>
+Output written on document.pdf (11 pages, 213834 bytes).
 PDF statistics:
- 141 PDF objects out of 1000 (max. 8388607)
- 35 named destinations out of 1000 (max. 500000)
+ 172 PDF objects out of 1000 (max. 8388607)
+ 46 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
