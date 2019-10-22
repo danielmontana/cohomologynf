@@ -65,7 +65,7 @@ Es decir, los grupos $H^n(G/U,A^U)$ donde $U$ recorre subgrupos normales y abier
 \begin{equation*}
 \varinjlim\limits_{U} H^n(G/U,A^U) \rightarrow H^n(G,A).
 \end{equation*}
-\begin{prop}
+\begin{prop}\label{prop3}
 El homomorfismo canónico es en realidad un isomorfismo:
 \begin{center}
 	\begin{tikzcd}
@@ -211,6 +211,52 @@ Como comentábamos, el resultado más importante de esta sección sobre módulos
 	 
 	 Cuando $G$ es finito, se puede repetir el argumento en el complejo extendido $(X^n)_{n \in \Z}$ para obtener $\hat{H}^n(G, \ind (A))=0$ para todo $n \in \Z$. \qed
 \end{dem}
+Este resultado nos permite aplicar una técnica conocida como \textit{dimension shifting} que consiste en reducir demostraciones sobre todos los grupos de cohomología a una única dimension. Dado $A$, definimos $A_1$ con la siguiente sucesión exacta:
+\begin{center}
+	\begin{tikzcd}
+	0 \arrow{r}& A \arrow{r}{i} & \ind (A) \arrow{r} & A_1 \arrow{r} & 0,
+	\end{tikzcd}
+\end{center}
+donde $ia$ es la función constante $ia(\sigma)=a$. Si $H\leq G$ es un subgrupo cerrado, por la proposición anterior tenemos que el homomorfismo:
+\begin{equation*}
+\delta: H^n(H,A_1) \rightarrow H^{n+1}(H,A)
+\end{equation*} 
+es sobreyectivo para $n=0$ y un isomorfismo para $n>0$. Aplicando el mismo proceso inductivamente para $A_0 = A$ y $A_+=(A_{p-1})_1$ para $p>0$ obtenemos:
+\begin{prop}\label{dimsh}
+	Para $n,p \geq0$ y cualquier subgrupo $H$ de $G$, tenemos un homomorfismo canónico:\begin{equation*}
+	\delta^p: H^n(H,A_p) \rightarrow H^{n+p}(H,A)
+	\end{equation*}
+	que es sobreyectivo para $n=0$ y un isomorfismo para $n>0$.
+\end{prop}
+
+Si $G$ es un grupo finito, también podemos obtener un resultado parecido para la cohomología de Tate. Consideremos la sucesión exacta:
+\begin{center}
+	\begin{tikzcd}
+	0 \arrow{r}& A_{-1} \arrow{r}& \ind (A) \arrow{r}{\nu} & A \arrow{r} &0,
+	\end{tikzcd}
+\end{center}
+donde $\nu:x \mapsto \sum_{g \in G} x(g)$. Definimos $A_p=(A_{p+1})_{-1}$ para $p<0$; utilizando que $\ind (A) \cong A \otimes \Z[G]$ es fácil ver que:
+\begin{center}
+	$A_p \cong A \otimes J_G^{\otimes p}$ y $A_{-p}\cong I_G^{\otimes p}$
+\end{center}
+para $p\geq 0$, donde $I_G,J_G$ vienen dados por las sucesiones:
+\begin{center}
+	\begin{tikzcd}
+	0 \arrow{r} & I_G \arrow{r} & \Z[G] \arrow{r}{\epsilon} & \Z \arrow{r}& 0,\\
+		0 \arrow{r}& \Z \arrow{r}{N_G}&\Z[G] \arrow{r} & J_G \arrow{r} & 0.
+		\end{tikzcd}
+	\end{center}
+A $\epsilon$ se le denomina \textit{augmentation map}:
+\begin{equation*}
+\epsilon: \sum_{\sigma \in G} a_{\sigma} \sigma \mapsto \sum_{\sigma \in G} a_{\sigma},
+\end{equation*}
+y al $G$-módulo $I_G$ se le llama \textit{augmentation ideal}. Como $\hat{H}^n(H,\ind (A))=0$, obtenemos isomorfismos canónicos:
+\begin{equation*}
+\hat{H}^n(H,A)\cong \hat{H}^{n-p}(H,A_p)
+\end{equation*}
+para todo $n,p \in \Z$.
+
+Volviendo a caso general de un grupo profinito $G$, otra forma de calcular los grupos de cohomología es utilizando resoluciones acíclicas $Y^{\bullet}$ de $A$, en cuyo caso $H^n(G,A)\cong H^n(H^0(G,Y^{\bullet}))$ (ver Proposición 1.3.9).
 \section{El producto cup}
 Recordamos que dados dos $G$-módulos $A$ y $B$, $A \otimes_{\mathbb{Z}} B$ con la acción diagonal también es un $G$-módulo. Esto nos permite definir para $p,q \geq 0 $:
 \begin{center}
@@ -232,9 +278,112 @@ que puede verificarse con un simple cálculo. Claramente, si $a$ y $b$ son cocic
 H^p(G,A)\times H^q(G,B) \arrow{r}{\cup}&  H^{p+q}(G, A \otimes B),
 \end{tikzcd}
 \end{center}
-dado por $(\alpha, \beta) \mapsto \alpha \cup \beta$. A esta aplicación le llamamos \textbf{producto cup}. Cada vez que definimos una aplicación nueva en la cohomología, tenemos que verificar sus propiedades functoriales y su compatibilidad con las anteriores. 
-	
+dado por $(\alpha, \beta) \mapsto \alpha \cup \beta$. A esta aplicación le llamamos \textbf{producto cup}. También se le llama producto cup a la composición:
+\begin{center}
+	\begin{tikzcd}
+	H^p(G,A) \times H^q(G,B) \arrow{r}{\cup} & H^{p+q}(G, A \otimes B)  \arrow{r} & H^{p+q}(G,C),
+	\end{tikzcd}
+\end{center}
+que viene inducida por una aplicación bilineal $A \times B \rightarrow C$ que factoriza en el producto tensorial. 
 
-	
+Cada vez que definimos una aplicación nueva en la cohomología, tenemos que verificar sus propiedades functoriales y su compatibilidad con las anteriores. Directamente de la definición se sigue que el producto cup conmuta con homomorfismos $A \rightarrow A', B \rightarrow B'$. A continuación demostramos la compatibilidad con $\delta$:
+\begin{prop}
+	Sean
+		
+		\begin{center}
+			 $0 \rightarrow A' \rightarrow A \rightarrow A'' \rightarrow 0$ y $0 \rightarrow C' \rightarrow C \rightarrow C''\rightarrow 0$.
+		\end{center}
+dos sucesiones exactas de $G$-módulos. Sea $B$ otro $G$-módulo y supongamos que existe un emparejamiento $A \times B \rightarrow C$ que induce $A' \times B\rightarrow C'$ y $A'' \times B \rightarrow C''$.  Entonces el diagrama siguiente conmuta:
 
+\begin{center}
+	\begin{tikzcd}[column sep=small]
+	H^p(G,A'') \arrow[d,"\delta"] \arrow[r,phantom,"\times"] & H^q(G,B) \arrow[d,"id"] \arrow[r,"\cup"]& H^{p+q}(G,C'') \arrow[d,"\delta"]\\
+	H^{p+1}(G,A') \arrow[r,phantom,"\times"]& H^q(G,B)  \arrow[r,"\cup"]&  H^{p+q+1}(G,C')
+	\end{tikzcd}
+\end{center}
+Es decir, $\delta(\alpha'' \cup \beta)=\delta \alpha'' \cup \beta$.
+
+Análogamente, dadas dos sucesiones exactas:
+\begin{center}
+	$0 \rightarrow B' \rightarrow B \rightarrow B'' \rightarrow 0$ y $0 \rightarrow C' \rightarrow C \rightarrow C''\rightarrow 0$
+\end{center}
+con un emparejamiento $A \times B \rightarrow C$ que induce $A \times B' \rightarrow C'$ y $A \times B'' \rightarrow C''$, el diagrama siguiente conmuta:
+\begin{center}
+	\begin{tikzcd}[column sep=small]
+	H^p(G,A) \arrow[d,"id"] \arrow[r,phantom,"\times"] & H^q(G,B'') \arrow[d,"\delta"] \arrow[r,"\cup"]& H^{p+q}(G,C'') \arrow[d,"(-1)^p\delta"]\\
+	H^{p}(G,A) \arrow[r,phantom,"\times"]& H^{q+1}(G,B')  \arrow[r,"\cup"]&  H^{p+q+1}(G,C').
+	\end{tikzcd}
+\end{center}
+Es decir, $(-1)^p \delta(\alpha \cup \beta'') = \alpha \cup \delta \beta''$.
+\end{prop}
+\begin{dem}
+	Demostramos la primera igualdad, siendo análoga la demostración de la segunda. Sean $\alpha''=\overline{a''},\beta=\overline{b}$ para $a''\in Z^p(G,A''),b\in Z^q(G,A)$. 
+	
+	El functor $A \mapsto C^p(G,A)$ es exacto, luego podemos elegir $a\in C^p(G,A)$ que esté en la preimagen de $a''$.	Entonces por definición de $\delta$, $\delta \alpha''\in H^{p+1}(G,A')$ es representado por $\partial a\in Z^{p+1}(G,A')$  (identificando $A'$ con su imagen en $A$).
+	
+	A su vez, $\delta(\alpha'' \cup \beta)$ es representado por $\partial(a \cup b)=\partial a \cup b$, ya que $\partial b = 0$. Pasando a cohomología esto significa:
+	\begin{equation*}
+	\delta(\alpha'' \cup \beta)=\delta \alpha'' \cup \beta.
+	\end{equation*}\qed
+\end{dem}
+\begin{prop}
+	El producto cup verifica:
+	
+	\begin{enumerate}[label = \roman*)]
+		\item $(\alpha \cup \beta) \cup \gamma = \alpha \cup (\beta \cup \gamma)$.
+		\item $\alpha \cup \beta = (-1)^{pq}(\beta \cup \alpha)$.
+	\end{enumerate}
+\end{prop}
+\begin{dem}
+	La primera afirmación es una comprobación directa. Para la segunda utilizaremos el método de \textit{dimension shifting} introducido en la Proposición \ref{dimsh}. Recordamos que existen homomorfismos sobreyectivos $\delta^n: H^0(G,A_n)\rightarrow H^n(G,A).$ Aplicando la proposición anterior $p$ y $q$ veces respectivamente obtenemos un diagrama conmutativo:
+	\begin{center}
+		\begin{tikzcd}
+		[column sep=small]
+		H^0(G,A_p) \arrow[d,"\delta^p"] \arrow[r,phantom,"\times"] & H^0(G,B_q) \arrow[d,"id"] \arrow[r,"\cup"]& H^0(G,(A\otimes B_q)_p) \arrow[d,"\delta^p"] \arrow[r,phantom,"="]& H^0(G,A_p \otimes B_q)\\
+		H^p(G,A') \arrow[r,phantom,"\times"] \arrow[d,"id"]& H^0(G,B_q)  \arrow[r,"\cup"] \arrow[d,"\delta^p"]&  H^p(G,(A \otimes B)_q) \arrow[d,"(-1)^{pq}\delta^q"] \arrow[r,phantom,"="] & H^p(G,A \otimes B_q)\\
+		H^p(G,A\arrow[r,phantom,"\times"] & H^q(G,B) \arrow[r,"\cup"] & H^{p+q}(G,A\otimes B)
+		\end{tikzcd}	
+\end{center}
+Para $p=q=0$ la identidad es trivial. Como las flechas verticales son sobreyectivas, obtenemos $\alpha \cup B=(-1)^{pq}(\beta \cup \alpha)$ para $p,q \geq 0$.\qed
+\end{dem}
+%\begin{prop}
+%	Sean:
+%	\begin{center}
+%		$0 \rightarrow A' \rightarrow A \rightarrow A'' \rightarrow 0$ y $0 \rightarrow B' \rightarrow B \rightarrow B'' \rightarrow 0$
+%	\end{center}
+%dos sucesiones exactas de $G$-módulos tal que existe un emparejamiento $\phi: A \times B \rightarrow C$ con $C$ otro $G$-módulo y tal que $\phi(A' %\times B')=0$. Es decir, $\phi$ induce $\phi',\phi''$ tal que el siguiente diagrama conmuta:
+%\begin{center}
+%	\begin{tikzcd}
+%	A' \arrow[r,phantom,"\times"] \arrow[d,hook,"i"] & B'' \arrow[r,"\phi'"] & C \arrow[d,equal]\\
+%	A \arrow[d,two heads,"j"] \arrow[r,phantom,"\times"] & B \arrow[u, two heads, "v"] \arrow[r,"\phi"]& C \arrow[d,equal]\\
+%	A'' \arrow[r,phantom,"\times"] & B' \arrow[u,hook,"u"] \arrow[r,"\phi''"]& C
+%	\end{tikzcd}
+%\end{center}
+%\end{prop}
+
+
+El producto cup también se puede definir en dimensiones arbitrarias cuando $G$ es finito (es decir, para cohomología de Tate) y de manera que los resultados que hemos demostrado también se cumplan. Esto se puede consultar en la Proposición 1.4.7 del libro. 
+\section{Cambios en el grupo $G$}
+En esta sección estudiaremos cómo se comportan los grupos de cohomología en la siguiente situación: tenemos dos grupos profinitos $G$ y $G'$, un $G$-módulo $A$ y respectivamente un $G'$-módulo $A'$ junto a homomorfismos:
+\begin{equation*}
+\phi: G' \rightarrow G,f:A \rightarrow A'
+\end{equation*}
+que verifican $f(\phi(\sigma')a)=\sigma' f(a)$. Esto nos permite obtener otro homomorfismo $C^n(G,A)\rightarrow C^n(G',A')$ dado por $a \mapsto f \circ a \circ \phi$. Claramente esto conmuta con $\partial$ luego induce un homomorfismo:
+\begin{equation*}
+H^n(G,A) \rightarrow H^n(G',A').
+\end{equation*}
+De hecho, los $H^n(G,A)$ es functorial tanto en $A$ como een $G$, es decir, dados $G'' \rightarrow G' \rightarrow G$ y $A'' \rightarrow A' \rightarrow A$, el homomorfismo:
+\begin{equation*}
+H^n(G,A) \rightarrow H^n(G'',A'')
+\end{equation*}	
+es la composición de los dos homomorfismos intermedios. Esto nos permite generalizar la Proposición \ref{prop3}.
+\begin{prop}
+	Si $G=\varprojlim\limits_{i \in  I}G_i$ y $A=\varinjlim\limits_{i\in I}A_i$, entonces:
+	\begin{equation*}
+	H^n(G,A)\cong \varinjlim\limits_{i \in  I} H^n(G_i,A_i).
+	\end{equation*}
+\end{prop}
+\begin{dem}
+	La acción de $G$ sobre $A$ se define de la siguiente manera: 
+\end{dem}
 \end{document}
