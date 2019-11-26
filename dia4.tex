@@ -1,0 +1,188 @@
+\documentclass[a4paper,12pt, leqno]{article}
+\input{comandos}
+
+\title{Día 3}
+\author{Daniel M.}
+
+\begin{document}
+	\section{Cambios en el grupo $G$}
+	En esta sección estudiaremos cómo se comportan los grupos de cohomología en la siguiente situación: tenemos dos grupos profinitos $G$ y $G'$, un $G$-módulo $A$ y un $G'$-módulo $A'$ junto a homomorfismos compatibles:
+	\begin{equation*}
+	\phi: G' \rightarrow G,f:A \rightarrow A';
+	\end{equation*}
+	es decir, que verifican $f(\phi(\sigma')a)=\sigma' f(a)$. Esto nos permite obtener un homomorfismo de cocadenas $C^n(G,A)\rightarrow C^n(G',A')$ dado por $a \mapsto f \circ a \circ \phi$. Claramente esto conmuta con $\partial$ luego induce un homomorfismo:
+	\begin{equation*}
+	H^n(G,A) \rightarrow H^n(G',A').
+	\end{equation*}
+	De hecho, $H^n(G,A)$ es functorial tanto en $A$ como en $G$, es decir, dados $G'' \rightarrow G' \rightarrow G$ y $A'' \rightarrow A' \rightarrow A$, el homomorfismo:
+	\begin{equation*}
+	H^n(G,A) \rightarrow H^n(G'',A'')
+	\end{equation*}	
+	es la composición de los dos homomorfismos intermedios. Esto nos permite generalizar la Proposición en la que caracterizamos $H^n(G,A)$ como límite directo de los grupos $H^n(G/U,A^U)$, donde $U$ recorría los subgrupos abiertos.
+	
+	Sea $(G_i)_{i\in I}$ un sistema inverso de grupos profinitos y $(A_i)_{i \in I}$ un sistema directo tal que para todo $i\in I$, $A_i$ es un $G_i$-módulo y los homomorfismos:
+	\begin{equation*}
+	G_j \rightarrow G_i,A_i \rightarrow A_j
+	\end{equation*}
+	son compatibles para $i \leq j$. Los grupos $H^n(G_i,A_i)$ forman un sistema directo y tenemos:
+	\begin{prop}
+		Si $G=\varprojlim\limits_{i \in  I}G_i$ y $A=\varinjlim\limits_{i\in I}A_i$, entonces:
+		\begin{equation*}
+		H^n(G,A)\cong \varinjlim\limits_{i \in  I} H^n(G_i,A_i).
+		\end{equation*}
+	\end{prop}
+	\begin{dem} (Idea)
+	Lo primero es describir la acción de $G$ en $A$. Sea $\sigma \in G$ y $a=\psi_j(a_j)\in A$. Entonces $\sigma a=\psi_j(\sigma_j a_j)$. 
+	
+	De esta definición deducimos fácilmente que los homomorfismos $G \rightarrow G_i, A_i \rightarrow A$ son compatibles para todo $i\in I$, luego tenemos un homomorfismo de cocadenas $\kappa_i: C^n(G_i,A_i)\rightarrow C^n(G,A).$	Por la propiedad universal del límite directo obtenemos un homomorfismo:
+	\begin{equation*}
+	\kappa: \varinjlim C^n(G_i,A_i) \rightarrow C^n(G,A).
+	\end{equation*}
+	Este homomorfismo conmuta con $\partial$, luego es suficiente demostrar que $\kappa$ es un isomorfismo. 
+	
+	Primero, si tenemos un elemento del límite directo representado por $x_i \in C^n(G_i,A_i)$ que es cero en $C^n(G,A)$, como $x_i$ solo tiene un número finito de imágenes existe un índice $j\geq i$ tal que $x_i$ es cero en $C^n(G_j,A_j)$, luego representa a la clase del cero en el límite directo. Luego $\kappa$ es inyectivo.
+	
+	Para ver que es sobreyectiva, sea $y$ la cocadena inhomogénea asociada a un determinado $x \in C^n(G,A)$. Recordamos  que las cocadenas factorizan en un cociente $(G/U)^n$ para un subgrupo abierto $U$ adecuado, y además el número finito de valores que toma $y$ se pueden representar en un tiempo finito $i$. Es decir, podemos escribir $y$ como:
+	\begin{equation*}
+	G^n \rightarrow (G/U)^n \rightarrow A_i \rightarrow A
+	\end{equation*}
+	Es más, $G \rightarrow G/U$ factoriza como $G \rightarrow G_j \rightarrow G/U$ para algún $j \geq i$ lo cual nos da una cocadena $x:G_j^{n+1} \rightarrow A_j$ cuya imagen en $C^n(G,A)$ es $x$.	 
+	\qed
+	\end{dem}
+	Los tres casos más relevantes de homomorfismos $H^n(G,A) \rightarrow H^n(G',A')$ más un caso adicional son los siguientes:
+	\paragraph{Conjugación:} dados un subgrupo cerrado $H$ de $G$, un $G$-módulo $A$ y un $H$-módulo $B$, podemos definir para $\sigma,\tau \in G$:
+	\begin{equation*}
+	\tau^{\sigma}=\sigma^{-1}\tau \sigma,{}^{\sigma}H=\sigma H \sigma^{-1}.
+	\end{equation*}
+	Los homomorfismos $^{\sigma}H \rightarrow H$ dado por $\tau \mapsto \tau^{\sigma}$ y $B \rightarrow \sigma B$ dado por $b \mapsto \sigma b$ son compatibles e inducen un  isomorfismo que llamamos conjugación:
+	\begin{equation*}
+	\sigma_* : H^n(H,B) \rightarrow H^n(^{\sigma}H,\sigma B).
+	\end{equation*}
+	Además se verifica $1_* = \id$ and $(\sigma \tau)_*=\sigma_* \tau_*$
+	\paragraph{Inflation:} dados un subgrupo normal cerrado $H$ de $G$ y un $G$-módulo $A$, tenemos que $A^H$ es un $G/H$-módulo. La proyección e inclusión canónicas son compatibles e inducen un homomorfismo:
+	\begin{equation*}
+	inf_G^{G/H}:H^n(G/H,A^H)\rightarrow H^n(G,A)
+	\end{equation*}
+	llamado inflation, que cuando $H\subseteq F$ son dos subgrupos cerrados y normales verifica:
+	\begin{equation*}
+	inf_G^{G/H} \circ inf_{G/H}^{G/F} = inf_G^{G/F}.
+	\end{equation*}
+	\paragraph{Restricción:} para cualquier subgrupo cerrado $H$ de $G$ y cualquier $G$-módulo $A$ podemos considerar la inclusión $H \hookrightarrow G$ y la $\id_A$, que inducen:
+	\begin{equation*}
+	res_H^G: H^n(G,A) \rightarrow H^n(H,A).
+	\end{equation*}
+	Claramente la restricción verifica:
+	\begin{equation*}
+	res_F^{H} \circ res_{H}^{G} = res_F^{G}.
+	\end{equation*}
+	\paragraph{Correstricción:} si $H$ es un subgrupo abierto, podemos definir una familia de funciones norma inducida por la resolución estándar $X^{\bullet}(G,A)$ (recordatorio: $X^n(G,A)=\mathrm{Map}(G^{n+1},A)$). Ésta resulta ser una resolución acíclica de $A$ como $H$-módulo ya que $\mathrm{Ind}_G(X^{n-1})=X^n$. Es decir:
+	\begin{equation*}
+	H^n(H,A)=H^n((X^{\bullet})^H).
+	\end{equation*}
+	Para $n\geq 0$ tenemos la aplicación norma $N_{G/H}:(X^n)^H \rightarrow (X^n)^G$ que conmuta con $\partial$ luego induce un homomorfismo de complejos:
+	\begin{equation*}
+	N_{G/H}: (X^{\bullet})^H \rightarrow (X^{\bullet})^G
+	\end{equation*}
+	que al tomar cohomología nos da los homomorfismos:
+	\begin{equation*}
+	cor_G^H: H^n(H,A) \rightarrow H^n(G,A).
+	\end{equation*}
+	Para $n=0$ se trata de la norma usual. Además como $N_{G/H}\circ N_{H/F} = N_{G/F}$, también se verifica:
+	\begin{equation*}
+	cor_G^H \circ cor_H ^F = cor_G ^F.
+	\end{equation*}
+	Podemos describir la correstricción explícitamente al nivel de cocadenas. Sea $c= H \sigma \in H\setminus G$ una clase lateral, de la cual elegimos un representante $\overline{c}$. Definimos:
+	\begin{equation*}
+	cor: C^n(H,A) \rightarrow C^n(G,A)
+	\end{equation*}
+	dado por:
+	\begin{equation*}
+	(cor\; x)(\sigma_0,...,\sigma_n)=\sum\limits_{c \in H\setminus G} \overline{c}^{-1} x(\overline{c}\sigma_0 \overline{c \sigma_0}^{-1},..., \overline{c}\sigma_n \overline{c \sigma_n}^{-1}).
+	\end{equation*}
+	Es un ejercicio sencillo ver que para $\sigma \in G$ se tiene:
+	\begin{equation*}
+	\sigma^{-1}(cor \;x)(\sigma \sigma_0,...,\sigma \sigma_n)=cor\;x
+	\end{equation*}
+	luego $cor\;x$ es $G$-lineal y además conmuta con $\partial$ luego induce un homomorfismo en la cohomología que coincide con el que hemos nombrado antes. 
+	\subsection{Listado de resultados útiles}
+	\begin{enumerate}
+		\item $\sigma_*,inf,res,cor$ conmutan con el homomorfismo conector $\delta$.
+		\item  $\sigma_*$ conmuta con $inf,res,cor$.
+		\item $\sigma_*$ es compatible con el producto cup: $\sigma_*(\alpha \cup \beta)= \sigma_* \alpha \cup \sigma_* \beta$.
+		\item Cuando $H$ es un subgrupo cerrado normal, $inf(\alpha \cup \beta)=(inf\;\alpha)\cup (inf\; \beta)$.
+		\item Si $H$ es un subgrupo cerrado, $res(\alpha \cup \beta)=(res\;\alpha)\cup (res\; \beta)$.
+		\item Cuando $H$ es un subgrupo abierto $cor(\alpha \cup res\; \beta)=(cor\; \alpha)\cup \beta$.
+		\item  Si $V \subseteq U \subseteq G$ son cerrados y $V$ es normal:
+		\begin{equation*}
+		inf^{U/V}_U \circ res^{G/V}_{U/V} = res^G_U \circ inf ^{G/V}_G.
+		\end{equation*}
+		\item Si además $U$ es abierto:
+		\begin{equation*}
+		inf^{G/V}_G \circ cor^{U/V}_{G/V} = cor^U_G \circ inf^{U/V}_U.
+		\end{equation*}
+	\end{enumerate}
+\begin{prop}
+	Si $U$ es abierto en $G$, $cor^U_G \circ res^G_U=(G:U)$.
+\end{prop}
+\begin{dem}
+	Cuando $n=0$ recordamos que $H^0(G,A)\simeq A^G$ dado por $x\mapsto x(1)$, luego $res$ se convierte en la inclusión $A^G \hookrightarrow A^U$ y $cor$ en la norma $N_{G/H}$. Pero $x(1)$ es fijo por $G$ luego $N_{G/H}=\sum_{gH}(gH)x(1)=(G:U)x(1)$. El resto de casos se obtiene por dimension shifting. 
+\end{dem}
+	\section{Propiedades básicas}
+	Sea $G$ un grupo profinito. En esta sección recopilaremos algunas propiedades de lo grupos de cohomología que se usarán frecuentemente. Al igual que para el caso finito, definimos $\hat{H}^n(G,A)=H^n(G,A)$ para $n\geq 1$.
+	
+	Recordamos que $cor^U_G \circ res^G_U=(G:U)$, de lo cual obtenemos:
+	\begin{prop}
+		Sea $G$ un grupo profinito y $U$ un subgrupo abierto. Si $G$ es finito o $n \geq 1$, entonces para todo $G$-módulo $A$ tal que $\hat{H}^n(U,A)=0$ se cumple:
+		\begin{equation*}
+		(G:U)\hat{H}^n(G,A)=0.
+		\end{equation*}	
+		En particular, si $G$ es finito, $|G|$ aniquila $\hat{H}^n(G,A)$. Además, si $A$ es finitamente generado $H^n(G,A)$ es finito. 
+	\end{prop}
+	De la proposición anterior obtenemos que para grupos profinitos arbitrarios, $H^n(G,A)$ son grupos de torsión para $n\geq 1$, ya que el día 2 demostramos que $H^n(G,A)= \varinjlim\limits_{U} H^n(G/U,A^U)$, donde $U$ recorre los subgrupos normales de  $G$. 
+	\begin{prop}
+		Sea $G$ un grupo finito y $A$ un $G$-módulo. Supongamos que la multiplicación por $p$ es un automorfismo de $A$ para todo primo $p | \#G$. Entonces para todo $i\in \Z$:
+		\begin{equation*}
+		\hat{H}^i(G,A)=0.
+		\end{equation*}
+		Para $G$ profinito, el resultado se cumple para $i\geq 1$ y $A$ es cohomológicamente trivial si:
+		\begin{enumerate}
+			\item $A$ es un grupo de torsión cuyo orden (supernatural) es coprimo con $|G|$.
+			\item $A$ es un grupo profinito abeliano cuyo orden es coprimo con $|G|$.
+			\item $A$ es divisible y libre de torsión. 
+		\end{enumerate}	
+	\end{prop}
+	\begin{dem}
+		Sea $G$ finito y $m=\#G$, por hipótesis $a \mapsto am$ es un automorfismo luego induce un isomorfismo:
+		\begin{equation*}
+		m: \hat{H}^i(G,A)\rightarrow \hat{H}^i(G,A).
+		\end{equation*}
+		Entonces por la proposición anterior tenemos $\hat{H}^i(G,A)=0$.
+		
+		Ahora sea $G$ profinito y $U$ un subgrupo abierto normal tal que $m=\#(G/U)$. De nuevo $a \mapsto am$ es  un isomorfismo y tomando $U$-invariantes obtenemos que $m: A^U \rightarrow A^U$ es también un isomorfismo. Entonces por lo anterior $H^i(G/U,A^U)=0$ para todo $i \geq 1$ de lo que se deduce $H^i(G,A)$.
+		
+		Por último, señalamos que la hipótesis sobre los automorfismos que cumple en los 3 casos mencionados al final. \qed
+	\end{dem}
+
+Sea $H$ un subgrupo cerrado de $G$ y $A$ un $H$-módulo. Consideramos el $G$-módulo $\mathrm{Map}^H_G(A)$ de funciones continuas $x:G \rightarrow A$ tal que $x(hg)=hx(g)$. La acción de $\sigma \in G$ viene dada por $x(g)\mapsto (\sigma x)(g)=x(g \sigma)$.
+
+Tenemos además una proyección canónica $\pi: \mathrm{Ind}^H_G(A) \rightarrow A$ dada por $x \mapsto x(1)$ que es un homomorfismo de $H$-módulos y que identifica $A$ isomorficamente con el submódulo $A'=\{x:G \rightarrow A|x(g)=0\;\forall g \notin H\}$.
+\paragraph{Algunos casos particulares:}
+\begin{enumerate}
+	\item Si $H$ tiene índice finito y $g_1,...,g_n$ son representantes de las clases laterales de $G/H$, tenemos que $\mathrm{Ind}_G^H(A)=\bigoplus_{i=1}^n g_i A$.
+	\item Si $A$ es un $G$-módulo, $\mathrm{Ind}_G^H(A)$ es simplemente Map$(G/H,A)$.
+	\item Si además $H=1$, esta definición coincide con $\mathrm{Ind}_G(A)$.
+\end{enumerate}
+El siguiente lema es una generalización del hecho de que $Ind_G(A)$ sean acíclicos y cohomológicamente triviales. Se le conoce como lema de Shapiro:
+\begin{prop}
+	Sea $H$ un subgrupo cerrado de $G$ y $A$ un $H$-módulo. Entonces para todo $n\geq 0$ tenemos un isomorfismos canónico:
+	\begin{equation*}
+	sh:H^n(G,\mathrm{Ind}^H_G(A))\rightarrow H^n(H,A).
+	\end{equation*}
+\end{prop}
+\begin{dem}
+	Por definición, $H^n(G,\mathrm{Ind}^H_G(A))$ son los grupos de cohomología del complejo $X^{\bullet}(G,\mathrm{Ind}_G^H(A))^G$. La proyección $\pi$ induce homomorfismos $X^n(G,\mathrm{Ind}_G^H(A))^G \rightarrow X^n(G,A)^H$.
+	
+	
+	En realidad esto es un isomorfismo, luego $H^n(G,\mathrm{Ind}^H_G(A))$ es isomorfo a $H^n(X^{\bullet}(G,A)^H)\simeq H^n(H,A)$ ya que anteriormente resaltamos que $X^{\bullet}$ es una resolución acíclica de $A$ como $H$-módulo.\qed
+\end{dem}
+\end{document}

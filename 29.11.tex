@@ -1,0 +1,78 @@
+\documentclass[a4paper,12pt, leqno]{article}
+\input{comandos}
+
+\begin{document}
+\section{Extensiones}
+En esta sección vamos a ver la relación de los grupos de cohomología de dimensión 1 con el problema de clasificar ciertas sucesiones exactas cortas. 
+
+\begin{definicion}
+	Sean $(G,\cdot)$ un grupo finito y $(A,+)$ un grupo abeliano. Decimos que $E$ es una extensión de $G$ por $A$ si existe una sucesión exacta corta de $\mathbb{Z}$-módulos:
+\begin{center}
+		\begin{tikzcd}
+	0 \arrow{r} & A \arrow{r}{i}& E \arrow{r}{\pi}& G \arrow{r}& 0.
+	\end{tikzcd}
+\end{center}
+	\end{definicion}
+Nótese que podemos identificar $A$ con el subgrupo normal $i(A) \unlhd E$ tal que $G \simeq E/A$. Es decir, $E$ actúa de forma natural en $A$ por conjugación. Esto nos permite definir a su vez una acción de $G$ en $A$: dado $g \in G$, sea $\overline{g}\in E$ tal que $\pi(\overline{g})=g$. Entonces:
+\begin{equation*}
+i(g\cdot a):= \overline{g} i(a) \overline{g}^{-1}.
+\end{equation*}
+Es fácil comprobar que esta acción verifica todos las propiedas que requiere un $G$-módulo. Esto nos permite definir extensiones de $G$ por el $G$-módulo $A$ si acompañamos al grupo $A$ de esta estructura.
+\begin{definicion}
+Dos extensiones son equivalentes si existe un homomorfismo $\phi:E \rightarrow E'$ tal que el siguiente diagrama conmuta:
+\begin{center}
+	\begin{tikzcd}
+	0 \arrow{r} & A \arrow{r}{i} \ar[d,equal]& E \arrow{r}{\pi} \arrow{d}{\phi}& G \ar[d,equal] \arrow{r}  & 0\\
+	0  \arrow{r} & A \arrow{r}{i'}& E' \arrow{r}{\pi'}& G   \arrow{r}& 0 
+\end{tikzcd}
+\end{center}
+En este caso, uno puede comprobar que $\phi$ es un isomorfismo. 
+\end{definicion}
+\begin{definicion}
+Dada una sucesión exacta corta de $R$-módulos: 
+\begin{center}
+	\begin{tikzcd}0 \arrow{r} & A \arrow{r}{f}& B \arrow{r}{g}& C \arrow{r}& 0, \end{tikzcd}
+\end{center}
+	decimos que \textit{escinde} si existe un homomorfismo $\sigma:C \rightarrow B$ tal que $g \sigma=\id_C$. A $\sigma$ se le denomina una sección.
+	
+\end{definicion}
+Por ejemplo la siguiente s.e.c. de grupos abelianos no escinde:
+\begin{equation*}
+0 \rightarrow \Z /2 \rightarrow \Z /4 \rightarrow \Z /2 \rightarrow 0.
+\end{equation*}
+Sea $E$ una extensión de $G$ por $A$ escindida. Identificando $E$ con $A \times G$ como conjuntos podemos deducir la operación de grupo:
+\begin{equation*}
+(i(a)\sigma(g))(i(a')\sigma(g'))=i(a)\sigma(g)i(a')\sigma(g)^{-1} \sigma(g) \sigma(g')=i(a)i(ga')\sigma(g) \sigma(g').
+\end{equation*}
+Es decir, la operación viene dada por: 
+\begin{equation*}
+(a,g)\cdot(a',g')=(a+ga',gg'),
+\end{equation*}
+lo cual corresponde al producto semidirecto $A\rtimes G$. Es decir, que si una extensión de $G$ por $A$ escinde, éste es isomorfa a $A \rtimes G$.
+\begin{definicion}
+	Sean $\sigma, \sigma': G \rightarrow E$ dos secciones. Decimos que son conjugadas si existe $a\in A$ tal que $\sigma(g)=i(a)\sigma'(g)i(a)^{-1}$ para todo $g\in G$.
+	\end{definicion}
+\begin{prop} Las extensiones de $G$ por $A$ escindidas corresponden a 1-cociclos inhomogéneos. Es decir, a homomorfismos cruzados $x:G \rightarrow A$ tal que $x(gg')=x(g)+gx(g')$. 
+	\end{prop}
+\begin{dem}
+	La sección $G \rightarrow A \rtimes G$ tiene que tener la forma $g \mapsto (x(a),g)$ para algún $x:G \rightarrow A$. Como se tiene que verificar $\sigma(g g')=\sigma(g) \sigma(g')$ tenemos que: 
+	\begin{equation*}
+	(x(gg'),gg')=(x(g),g)\cdot (x(g'),g')=(x(g)+gx(g'),gg').
+	\end{equation*}\qed
+	\end{dem}
+\begin{prop}
+	Dos homomorfismos cruzados correspondientes a secciones conjugadas difieren en un 1-coborde. 
+	\end{prop}
+\begin{dem}
+	Sea $a \in A$ tal que $\sigma(g)i(a)=i(a)\sigma'(g)$, es decir: 
+	\begin{equation*}
+	(x(g),g)\cdot (a,1)=(a,1)\cdot(x(g'),g').
+	\end{equation*}
+	Esto implica que $x(g)+ga=a+x'(g)$, luego $x(g)-x'(g)=ga-a$ que es el resultado que queríamos. \qed
+	\end{dem}
+\paragraph{Conclusión:}
+podemos interpretar el grupo $H^1(G,A)$ como las secciones de una extensión escindida de $G$ por $A$ módulo que las secciones sean conjugadas. 
+\section{Otros ejemplos}
+\begin{teor}
+	\end{teor}
+\end{document}

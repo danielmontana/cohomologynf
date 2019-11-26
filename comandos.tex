@@ -47,7 +47,17 @@
 {\bfseries}                   % Theorem head font
 {.}                          % Punctuation after theorem head
 {.5em}                       % Space after theorem head
-{}  % Theorem head spec (can be left empty, meaning ‘normal’)          
+{}  % Theorem head spec (can be left empty, meaning ‘normal’)   
+
+\newtheoremstyle{teor} % name
+{\topsep}                    % Space above
+{\topsep}                    % Space below
+{\itshape}                  % Body font
+{}                           % Indent amount
+{\bfseries}                   % Theorem head font
+{.}                          % Punctuation after theorem head
+{.5em}                       % Space after theorem head
+{}  % Theorem head spec (can be left empty, meaning ‘normal’)               
 
 \theoremstyle{defprop}
 \newtheorem{defprop}{Definición/Proposición}
@@ -56,6 +66,9 @@
 
 \theoremstyle{prop}
 \newtheorem{prop}{Proposición}
+
+\theoremstyle{teor}
+\newtheorem{teor}{Teorema}
 
 \theoremstyle{dem}
 \newtheorem*{dem}{Demostración}
